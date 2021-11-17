@@ -6,9 +6,6 @@ else:
     t=[]
     t=b.split()
 
-com=0
-pos_cam=0
-v=["A","B","C","D","E","F","G","H","I","J"]
 x=0
 m1=[]
 m2=[]
@@ -23,6 +20,16 @@ m10=[]
 m=[]
 u=[]
 mx=[]
+m1m2=[]
+m2m3=[]
+m3m4=[]
+m4m5=[]
+m5m6=[]
+m6m7=[]
+m7m8=[]
+m8m9=[]
+m9m10=[]
+s=[0,0,0,0]
 
 
 
@@ -52,6 +59,7 @@ def calcula_terminos():
     print(mx)
 
 def separador():
+
     l=0
     for j in range(len(mx)):
         for k in range(len(mx[j])):
@@ -80,31 +88,121 @@ def separador():
             m10.append(mx[j])
         l=0
 
+def tablas1a4():
+    
+    com=0
+    pos_cam=0
+    p=0
+    #m1 con m2
+    for q in range(len(m1)):
+        for w in range(len(m2)):
+            while p<4:
+                if (m1[q][p]) == (m2[w][p]):
+                    if p==0:
+                        s1=int(m2[w][p])
+                    elif p==1:
+                        s2=int(m2[w][p])
+                    elif p==2:
+                        s3=int(m2[w][p])
+                    elif p==3:
+                        s4=int(m2[w][p])
+                else:
+                    com=com+1
+                    pos_cam=p
+                p=p+1
+        
+            if com==1:
+                if pos_cam==0:
+                    s1="-"
+                elif pos_cam==1:
+                    s2="-"
+                elif pos_cam==2:
+                    s3="-"
+                elif pos_cam==3:
+                    s4="-"
+                m1m2.append([s1,s2,s3,s4])
+            p=0
+            com=0
+    #m2 con m3
+    for q in range(len(m2)):
+        for w in range(len(m3)):
+            while p<4:
+                if (m2[q][p]) == (m3[w][p]):
+                    if p==0:
+                        s1=int(m3[w][p])
+                    elif p==1:
+                        s2=int(m3[w][p])
+                    elif p==2:
+                        s3=int(m3[w][p])
+                    elif p==3:
+                        s4=int(m3[w][p])
+                else:
+                    com=com+1
+                    pos_cam=p
+                p=p+1
+                
+            if com==1:
+                if pos_cam==0:
+                    s1="-"
+                elif pos_cam==1:
+                    s2="-"
+                elif pos_cam==2:
+                    s3="-"
+                elif pos_cam==3:
+                    s4="-"
+                m2m3.append([s1,s2,s3,s4])
+            p=0
+            com=0
+    #m3 a m4
+    for q in range(len(m3)):
+        for w in range(len(m4)):
+            while p<4:
+                if (m3[q][p]) == (m4[w][p]):
+                    if p==0:
+                        s1=int(m4[w][p])
+                    elif p==1:
+                        s2=int(m4[w][p])
+                    elif p==2:
+                        s3=int(m4[w][p]) 
+                    elif p==3:
+                        s4=int(m4[w][p])
+                else:
+                    com=com+1
+                    pos_cam=p
+                p=p+1
+           
+            if com==1:
+                if pos_cam==0:
+                    s1="-"
+                elif pos_cam==1:
+                    s2="-"
+                elif pos_cam==2:
+                    s3="-"
+                elif pos_cam==3:
+                    s4="-"
+                m3m4.append([s1,s2,s3,s4])
+            p=0
+            com=0
+
 #reductor segun las varibables
 if a==4:
     print(1) 
     calcula_terminos()
     separador()
-    
-    if (m1[0][0]) != (m2[0][0]):
-        com=com+1
-        pos_cam=0
-    if (m1[0][1]) != (m2[0][1]):
-        com=com+1
-        pos_cam=1
-    if (m1[0][2]) != (m2[0][2]):
-        com=com+1
-        pos_cam=2
-    if (m1[0][3]) != (m2[0][3]):
-        com=com+1
-        pos_cam=3
-    if com==1:
-        print("valido")
-        
     print(m1,"1")
     print(m2,"2")
     print(m3,"3")
     print(m4,"4")
+    tablas1a4()
+    m1=m1m2
+    m2=m2m3
+    m3=m3m4
+    print(m1,"11")
+    print(m2,"22")
+    if m3==[]:    
+        print("vacio")
+    else:
+        print(m3,"33")
 elif a==5:
     print(2)
     calcula_terminos()
