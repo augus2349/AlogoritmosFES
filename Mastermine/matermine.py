@@ -7,11 +7,16 @@ import random
 #con=1
 gam=1
 inte=0
+z=0
+#bucle para inicior o reiniciar el juego
 while gam==1:
     #parametros
     B=[]
     P=[]
-    F=[]
+    F1=[]
+    F2=[]
+    F3=[]
+    F4=[]
     posm=[]
     #check
     c1=0
@@ -27,6 +32,7 @@ while gam==1:
     re3=0
     
     a=0
+    #bucle para darle valores aleatorios a la respuesta y el primer intento
     while a<4:
        B.append(random.randint(0, 7))
        P.append(random.randint(0, 7))
@@ -40,7 +46,9 @@ while gam==1:
     
 #repetidos
     con=0
+    #bucle para los intentos
     while con==0:
+        #repeticiones
         if P[0]==P[1]:
             re1=re1+1
         if P[0]==P[2]:
@@ -55,7 +63,8 @@ while gam==1:
         if P[1]!=P[2]:
             if P[2]==P[3]:
                 re3=re3+1
-          
+        #chequeo
+        #1 bien,2 posible
         for i in range(len(B)):
             if P[0]==B[i]:
                 if i==0:
@@ -63,7 +72,6 @@ while gam==1:
                 else:
                     if c1!=1:
                         c1=2
-                    
             elif c1!=2 and c1!=1:
                 c1=3
             if P[1]==B[i]:
@@ -153,83 +161,89 @@ while gam==1:
                             if c3!=1:
                                 c3=3
                             
-        if c1==3:
-            F.append(P[0])
+        if c1==3 or c1==2:
+            F1.append(P[0])
     
-        if c2==3:
-            F.append(P[1])
+        if c2==3 or c2==2:
+            F2.append(P[1])
             
-        if c3==3:
-            F.append(P[2])
+        if c3==3 or c3==2:
+            F3.append(P[2])
     
-        if c4==3:
-            F.append(P[3])
+        if c4==3 or c4==2:
+            F4.append(P[3])
             
         print(P)        
         print(c1,c2,c3,c4)
-        z=0
-        if c1!=1:
-            r=0
-            while r==0:
-                cont=0
-                P1=random.randint(0, 7)
-                for i in range(len(F)):
-                    if P1==F[i]:
-                        cont=cont+1
-                if cont<1:
-                    r=1 
-            P[0]=P1
-        
-        if c2!=1:
-            r=0
-            while r==0:
-                cont=0
-                P2=random.randint(0, 7)
-                for i in range(len(F)):
-                    if P2==F[i]:
-                        cont=cont+1
-                if cont<1:
-                    r=1 
-            P[1]=P2
-            
-        if c3!=1:
-            r=0
-            while r==0:
-                cont=0
-                P3=random.randint(0, 7)
-                for i in range(len(F)):
-                    if P3==F[i]:
-                        cont=cont+1
-                if cont<1:
-                    r=1 
-            P[2]=P3
-            
-        if c4!=1:
-            r=0
-            while r==0:
-                cont=0
-                P4=random.randint(0, 7)
-                for i in range(len(F)):
-                    if P4==F[i]:
-                        cont=cont+1
-                if cont<1:
-                    r=1      
-            P[3]=P4
-            
-        
         z=c1+c2+c3+c4
+        if z!=4:
+            if c1!=1:
+                r=0
+                while r==0:
+                    cont=0
+                    P1=random.randint(0, 7)
+                    for i in range(len(F1)):
+                        if P1==F1[i]:
+                            cont=cont+1
+                    if cont<1:
+                        r=1
+                    if cont==8:
+                        r=1
+                P[0]=P1
+            
+            if c2!=1:
+                r=0
+                while r==0:
+                    cont=0
+                    P2=random.randint(0, 7)
+                    for i in range(len(F2)):
+                        if P2==F2[i]:
+                            cont=cont+1
+                    if cont<1:
+                        r=1
+                    if cont==8:
+                        r=1
+                P[1]=P2
+                
+            if c3!=1:
+                r=0
+                while r==0:
+                    cont=0
+                    P3=random.randint(0, 7)
+                    for i in range(len(F3)):
+                        if P3==F3[i]:
+                            cont=cont+1
+                    if cont<1:
+                        r=1
+                    if cont==8:
+                        r=1
+                P[2]=P3
+                
+            if c4!=1:
+                r=0
+                while r==0:
+                    cont=0
+                    P4=random.randint(0, 7)
+                    for i in range(len(F4)):
+                        if P4==F4[i]:
+                            cont=cont+1
+                    if cont<1:
+                        r=1
+                    if cont==8:
+                        r=1
+                P[3]=P4
+            
+        
         if z==4:
             print("gano")
+            print(B)
+            print(P)
             con=1
         else:
             inte=inte+1
         print("intento",inte)
         if inte==10:
             con=1
-        #if c1==1 and c2==1 and c3==1 and c4==1:
-            #print("WIN")
-            #con=0
-        #else:
-            #con=1
-    #con=0
-    gam=0
+    inte=0
+    w=int(input("desea repetir 1/si 0/no"))
+    gam=w
