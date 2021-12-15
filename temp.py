@@ -88,7 +88,7 @@ def separador():
             m10.append(mx[j])
         l=0
 
-def tablas1a4():
+def tablas():
     
     com=0
     pos_cam=0
@@ -193,7 +193,7 @@ if a==4:
     print(m2,"2")
     print(m3,"3")
     print(m4,"4")
-    tablas1a4()
+    tablas()
     m1=m1m2
     m2=m2m3
     m3=m3m4

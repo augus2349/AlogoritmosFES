@@ -1,21 +1,21 @@
-class tablero{
+class Tablero{
   private int n;
   private int casillas[][];
-  public tablero(int N){
+  public Tablero(int N){
     this.n=N;
     this.casillas=new int[n][n];
     for(int j=0;j<n;j++){
       for(int i=0;i<n;i++){
-        casillas[j][i]=0; 
+        casillas[j][i]=1+j+(8*i); 
       }
     }
   }
-  public tablero(int N,int x, int y){
+  public Tablero(int N,int x, int y){
     this.n=N;
     this.casillas=new int[n][n];
     for(int j=0;j<n;j++){
       for(int i=0;i<n;i++){
-        casillas[j][i]=0; 
+        casillas[j][i]=1+j+(8*i); 
       }
     }
     casillas[x][y]=1;

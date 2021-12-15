@@ -1,5 +1,5 @@
 class Nodo{
-  private tablero actual;
+  private Tablero actual;
   private Nodo padre;
   private Nodo hijos[];
   private int x;
@@ -28,7 +28,7 @@ class Nodo{
   public Nodo (int p,int j){
       this.x=p;
       this.y=j;
-      actual = new tablero(8,x,y);
+      actual = new Tablero(8,x,y);
   }
 }
 
