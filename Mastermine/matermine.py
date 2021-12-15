@@ -167,46 +167,59 @@ while gam==1:
             
         print(P)        
         print(c1,c2,c3,c4)
-            
+        z=0
         if c1!=1:
             r=0
             while r==0:
+                cont=0
                 P1=random.randint(0, 7)
                 for i in range(len(F)):
-                    if P1!=F[i]:
-                        r=1
+                    if P1==F[i]:
+                        cont=cont+1
+                if cont<1:
+                    r=1 
             P[0]=P1
         
         if c2!=1:
             r=0
             while r==0:
+                cont=0
                 P2=random.randint(0, 7)
                 for i in range(len(F)):
-                    if P2!=F[i]:
-                        r=1
+                    if P2==F[i]:
+                        cont=cont+1
+                if cont<1:
+                    r=1 
             P[1]=P2
             
         if c3!=1:
             r=0
             while r==0:
+                cont=0
                 P3=random.randint(0, 7)
                 for i in range(len(F)):
-                    if P3!=F[i]:
-                        r=1
+                    if P3==F[i]:
+                        cont=cont+1
+                if cont<1:
+                    r=1 
             P[2]=P3
             
         if c4!=1:
             r=0
             while r==0:
+                cont=0
                 P4=random.randint(0, 7)
                 for i in range(len(F)):
-                    if P4!=F[i]:
-                        r=1
+                    if P4==F[i]:
+                        cont=cont+1
+                if cont<1:
+                    r=1      
             P[3]=P4
             
         
         z=c1+c2+c3+c4
         if z==4:
+            print("gano")
             con=1
         else:
             inte=inte+1
