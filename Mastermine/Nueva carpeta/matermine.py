@@ -6,7 +6,7 @@ Created on Tue Nov 16 09:36:41 2021
 import random
 #con=1
 gam=1
-inte=0
+inte=1
 z=0
 #bucle para inicior o reiniciar el juego
 while gam==1:
@@ -24,9 +24,7 @@ while gam==1:
     c3=0
     c4=0
     #parametros
-    rep1=0
-    rep2=0
-    rep3=0
+
     re1=0
     re2=0
     re3=0
@@ -233,15 +231,15 @@ while gam==1:
                         r=1
                 P[3]=P4
             
-        
+        print("intento",inte)
         if z==4:
-            print("gano")
+            print("gano en el intento: ",inte)
             print(B)
             print(P)
             con=1
         else:
             inte=inte+1
-        print("intento",inte)
+        
         if inte==10:
             con=1
     inte=0
